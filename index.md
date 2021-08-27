@@ -20,7 +20,7 @@
 <div align="center">
     <img src="images/teaser.png" width="100%" height ="50%" alt="teaser.png" />
 </div>
-<p align="center"><small>We introduce a dataset of 3D building meshes with annotated exteriors (top). We also present a graph neural network that processes building meshes and 
+<p align="justify"><small>We introduce a dataset of 3D building meshes with annotated exteriors (top). We also present a graph neural network that processes building meshes and 
 labels them by encoding structural and spatial relations between mesh components (bottom). Our dataset also includes a point cloud track (blue box). Examples of erroneous network 
 outputs are in red text.</small></p>
 
