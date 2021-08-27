@@ -2,3 +2,5 @@ theme: jekyll-theme-cayman
 title: "BuildingNet: Learning to Label 3D Buildings"
 description: ' '
 show_downloads: false
+github:
+  is_project_page: false
