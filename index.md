@@ -32,7 +32,7 @@ outputs are in red text.</small></p>
   <iframe
       width="640"
       height="480"
-      src="https://drive.google.com/file/d/1TLQM30hOfzFvDuTxXoQ6x2cBStMDm9bD"
+      src="https://drive.google.com/file/d/1TLQM30hOfzFvDuTxXoQ6x2cBStMDm9bD/preview"
       frameborder="0"
       allowfullscreen="">
   </iframe>
