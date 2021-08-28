@@ -16,6 +16,7 @@
   <sup>2</sup>University of Cyprus / CYENS CoE &emsp;
   <sup>3</sup>Adobe Research / IIT Bombay
 </p>
+<br>
 
 <div align="center">
     <img src="images/teaser.png" width="100%" height ="50%" alt="teaser.png" />
@@ -24,10 +25,12 @@
 labels them by encoding structural and spatial relations between mesh components (bottom). Our dataset also includes a point cloud track (blue box). Examples of erroneous network 
 outputs are in red text.</small></p>
 
+<br>
 <p align="center">
   <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing">[Paper (High Res)]</a>
 </p>
 
+<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling.</small></p>
 <div class="embed-container">
   <iframe
       width="640"
