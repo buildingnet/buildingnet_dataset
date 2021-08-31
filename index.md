@@ -27,9 +27,7 @@
 
 <h1 align="left">Paper</h1>
 <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing"><img style="padding: 10px 10px 10px 10px; box-shadow:4px 4px 8px #000; float: right" width="150" src="images/thumbnail_page_01.png"></a>
-
 <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing">BuildingNet.pdf</a>, 17.3MB
-
 <h3 align="left">Citation</h3>
 <p align="left">Pratheba Selvaraju, Mohamed Nabail, Marios Loizou, Maria Maslioukova, Melinos Averkiou, Andreas Andreou, Siddhartha Chaudhuri, Evangelos Kalogerakis, "BuildingNet: Learning to Label 3D Buildings", <em>Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 2021</p>
 
@@ -43,7 +41,7 @@
 }   
 ```
 
-<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a>, 34.6MB</small></p>
+<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a></small></p>
 
 <h1 align="left">Dataset and Code</h1>
 <p align="justify">We are currently preparing the code and dataset for final release - we expect release around the ICCV conference dates</p>
