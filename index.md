@@ -35,13 +35,13 @@
 <p align="left">Pratheba Selvaraju, Mohamed Nabail, Marios Loizou, Maria Maslioukova, Melinos Averkiou, Andreas Andreou, Siddhartha Chaudhuri, Evangelos Kalogerakis, "BuildingNet: Learning to Label 3D Buildings", <em>Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 2021</p>
 
 ```
-  @inproceedings{Selvaraju:2021:BuildingNet, 
-      author = {Pratheba Selvaraju and Mohamed Nabail and Marios Loizou and Maria Maslioukova and
-                Melinos Averkiou and Andreas Andreou and Siddhartha Chaudhuri and Evangelos Kalogerakis},   
-      title = {BuildingNet: Learning to Label 3D Buildings},   
-      booktitle = {IEEE/CVF International Conference on Computer Vision (ICCV)},
-      year = {2021}   
-  }   
+@inproceedings{Selvaraju:2021:BuildingNet, 
+  author = {Pratheba Selvaraju and Mohamed Nabail and Marios Loizou and Maria Maslioukova and
+            Melinos Averkiou and Andreas Andreou and Siddhartha Chaudhuri and Evangelos Kalogerakis},
+  title = {BuildingNet: Learning to Label 3D Buildings},   
+  booktitle = {IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year = {2021}   
+}   
 ```
 
 <p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a>, 34.6MB</small></p>
