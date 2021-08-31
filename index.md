@@ -27,19 +27,10 @@
 
 <h1 align="left">Paper</h1>
 <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing"><img style="padding: 10px 10px 10px 10px; box-shadow:4px 4px 8px #000; float: right" width="150" src="images/thumbnail_page_01.png"></a>
-
+<br><br><br>
 <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing">BuildingNet.pdf</a>, 17.3MB
 
-<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling.</small></p>
-<div class="embed-container">
-  <iframe
-      width="640"
-      height="480"
-      src="https://drive.google.com/file/d/1TLQM30hOfzFvDuTxXoQ6x2cBStMDm9bD/preview"
-      frameborder="0"
-      allowfullscreen="">
-  </iframe>
-</div>
+<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a>, 34.6MB</small></p>
 
 <h1 align="left">Dataset and Code</h1>
 <p align="justify">We are currently preparing the code and dataset for final release - we expect release around the ICCV conference dates</p>
