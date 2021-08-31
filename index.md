@@ -21,13 +21,13 @@
 <div align="center">
     <img src="images/teaser.png" width="100%" height ="50%" alt="teaser.png" />
 </div>
-<p align="justify"><small>We introduce a dataset of 3D building meshes with annotated exteriors (top). We also present a graph neural network that processes building meshes and 
-labels them by encoding structural and spatial relations between mesh components (bottom). Our dataset also includes a point cloud track (blue box). Examples of erroneous network 
-outputs are in red text.</small></p>
 
-<br>
+<h1 align="left">Abstract</h1>
+<p align="justify">We introduce BuildingNet: (a) a large-scale dataset of 3D building models whose exteriors are consistently labeled, and (b) a graph neural network that labels building meshes by analyzing spatial and structural relations of their geometric primitives. To create our dataset, we used crowdsourcing combined with expert guidance, resulting in 513K annotated mesh primitives, grouped into 292K semantic part components across 2K building models. The dataset covers several building categories, such as houses, churches, skyscrapers, town halls, libraries, and castles. We include a benchmark for evaluating mesh and point cloud labeling. Buildings have more challenging structural complexity compared to objects in existing benchmarks (e.g., ShapeNet, PartNet), thus, we hope that our dataset can nurture the development of algorithms that are able to cope with such large-scale geometric data for both vision and graphics tasks e.g., 3D semantic segmentation, part-based generative models, correspondences, texturing, and analysis of point cloud data acquired from real-world buildings. Finally, we show that our mesh-based graph neural network significantly improves performance over several baselines for labeling 3D meshes.</p>
+
+<h1 align="left">Paper</h1>
 <p align="center">
-  <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing">[Paper (High Res)]</a>
+  <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing">BuildingNet.pdf</a>, 17.3MB
 </p>
 
 <p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling.</small></p>
@@ -41,8 +41,5 @@ outputs are in red text.</small></p>
   </iframe>
 </div>
 
-<h1 align="center">Abstract</h1>
-<p align="justify">We introduce BuildingNet: (a) a large-scale dataset of 3D building models whose exteriors are consistently labeled, and (b) a graph neural network that labels building meshes by analyzing spatial and structural relations of their geometric primitives. To create our dataset, we used crowdsourcing combined with expert guidance, resulting in 513K annotated mesh primitives, grouped into 292K semantic part components across 2K building models. The dataset covers several building categories, such as houses, churches, skyscrapers, town halls, libraries, and castles. We include a benchmark for evaluating mesh and point cloud labeling. Buildings have more challenging structural complexity compared to objects in existing benchmarks (e.g., ShapeNet, PartNet), thus, we hope that our dataset can nurture the development of algorithms that are able to cope with such large-scale geometric data for both vision and graphics tasks e.g., 3D semantic segmentation, part-based generative models, correspondences, texturing, and analysis of point cloud data acquired from real-world buildings. Finally, we show that our mesh-based graph neural network significantly improves performance over several baselines for labeling 3D meshes.</p>
-
-<h1 align="center">Dataset and Code</h1>
+<h1 align="left">Dataset and Code</h1>
 <p align="justify">We are currently preparing the code and dataset for final release - we expect release around the ICCV conference dates</p>
