@@ -30,6 +30,8 @@
 <a href="https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view?usp=sharing">BuildingNet.pdf</a>, 17.3MB
 <h3 align="left">Citation</h3>
 <p style="padding-right: 10px" align="left">Pratheba Selvaraju, Mohamed Nabail, Marios Loizou, Maria Maslioukova, Melinos Averkiou, Andreas Andreou, Siddhartha Chaudhuri, Evangelos Kalogerakis, "BuildingNet: Learning to Label 3D Buildings", <em>Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 2021</p>
+<br>
+<a href="https://drive.google.com/file/d/1LqCN82l9zYjtjYlPM-2_tQIYWFowOMo0/view?usp=sharing">Bibtex</a>
 
 ```
 @inproceedings{Selvaraju:2021:BuildingNet, 
