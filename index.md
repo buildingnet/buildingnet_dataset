@@ -1,5 +1,3 @@
-<h1 align="center">BuildingNet: Learning to Label 3D Buildings</h1>
-
 <p align="center">
   <a href="https://www.linkedin.com/in/prathebaselvaraju">Pratheba Selvaraju</a><sup>1</sup> &emsp;
   Mohamed Nabail<sup>1</sup> &emsp;
