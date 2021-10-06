@@ -1,5 +1,4 @@
 # BuildingNet
-** BuildingNet **
 
 This is the implementation of the BuildingNet architecture described in this paper:
 
