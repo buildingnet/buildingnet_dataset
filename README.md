@@ -21,9 +21,11 @@ In this paper we have used minkowskiNet to train for the pretrained features.
 **Paper link**
 
 --
-##Requirements##
-This project was built using cuda10.1 and python3
+## Requirements:
+This project was built using cuda10.1 and python3. <br/>
 For other requirements, look into requirements.txt
+
+## Run the model:
 
 * 1. Download the pretrained features from [data](https://drive.google.com/drive/folders/1ixOFib3WjHBEKGQXIWHEcodR9qawNHvu?usp=sharing) and save it in the "data" folder in the project
 
