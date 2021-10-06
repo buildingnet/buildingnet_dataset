@@ -12,18 +12,14 @@ This is the implementation of the BuildingNet architecture described in this pap
 ## Project Page:
 [BuildingNet](https://buildingnet.org/)
 
-
---
-The model features are combination of a pretrained network model features and building prior information features.
-You can pretrain the dataset in  model ( mesh, point cloud, viewpoint )
-
-In this paper we have used minkowskiNet to train for the pretrained features.
-**Paper link**
-
---
 ## Requirements:
 This project was built using cuda10.1 and python3. <br/>
 For other requirements, look into requirements.txt
+
+## Model features:
+The model features are combinations of a pretrained network model features and building prior information features. <br/>
+In this paper we have used minkowskiNet to train for the pretrained features. <br/>
+[Minkowski CNN](https://arxiv.org/abs/1904.08755)
 
 ## Run the model:
 
