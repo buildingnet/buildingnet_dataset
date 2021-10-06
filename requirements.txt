@@ -1,0 +1,7 @@
+torch
+torchvision
+numpy
+scipy
+pytorch_geometric
+python3
+Cuda-10.1

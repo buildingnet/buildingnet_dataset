@@ -1,1 +1,6 @@
-
+*.swp
+*.swo
+*.swm
+*.swl
+*.swn
+*.pyc
