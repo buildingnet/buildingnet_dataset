@@ -4,4 +4,5 @@ description: "ICCV 2021 (oral)"
 show_downloads: true
 github:
   is_project_page: true
-  zip_url: https://github.com/buildingnet/buildingnet_dataset/zipball/master
+  zip_url: https://github.com/buildingnet/buildingnet_dataset/zipball/main
+  tar_url: https://github.com/buildingnet/buildingnet_dataset/tarball/main
