@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
 title: "BuildingNet: Learning to Label 3D Buildings"
 description: "ICCV 2021 (oral)"
-show_downloads: false
+show_downloads: true
 github:
   is_project_page: true
