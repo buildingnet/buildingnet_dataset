@@ -3,4 +3,4 @@ title: "BuildingNet: Learning to Label 3D Buildings"
 description: "ICCV 2021 (oral)"
 show_downloads: false
 github:
-  is_project_page: false
+  is_project_page: true
