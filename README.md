@@ -25,6 +25,7 @@ In this paper we have used minkowskiNet to train for the pretrained features. <b
 * 1. Download the pretrained features from [data](https://drive.google.com/drive/folders/1ixOFib3WjHBEKGQXIWHEcodR9qawNHvu?usp=sharing) and save it in the "data" folder in the project
 
 * 2. To run this model, execute command in run.txt <br/>
-python3 train.py --datadir="data" --epoch 200 --outputdir 'Output' --ckpt_dir 'checkpoint' --normalization 'GN' --modeltype 'Edge' --edgetype 'all' --lr 1e-4 --nodetype 'node+minkownormal' --pretrainedtype 'fc3_avg' --save_checkpoint=5
+python3 train.py --datadir="data" --epoch 200 --outputdir 'Output' --ckpt_dir 'checkpoint' --normalization 'GN' --modeltype 'Edge' --edgetype 'all' --lr 1e-4 --nodetype 'node+minkownormal' --pretrainedtype 'fc3_avg' --IOU_checkpoint=5
 
+This gives shape and part IOU every 5 epochs
 
