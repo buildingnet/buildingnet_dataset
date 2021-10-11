@@ -12,8 +12,8 @@ This is the implementation of the BuildingNet architecture described in this pap
 [BuildingNet](https://buildingnet.org/)
 
 ## Requirements:
-This project was built using cuda10.1 and python3. <br/>
-For other requirements, look into requirements.txt
+This project was built using cuda10.1 and python3.8 <br/>
+For other requirements, look into requirements.txt. The conda environment is in 'buildingnet.yml'
 
 ## Model features:
 The model features are combinations of a pretrained network model features and building prior information features. <br/>
