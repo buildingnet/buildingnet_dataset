@@ -9,7 +9,7 @@ This is the implementation of the BuildingNet architecture described in this pap
 (https://arxiv.org/abs/2110.04955)
 
 ## Project Page:
-[BuildingNet](https://buildingnet.org/)
+https://buildingnet.org/
 
 ## Requirements:
 This project was built using cuda10.1 and python3.8 <br/>
