@@ -6,7 +6,7 @@ This is the implementation of the BuildingNet architecture described in this pap
 [BuildingNet: Learning to Label 3D Buildings](https://drive.google.com/file/d/1aD5AIkx58k7EyK8Utg8vKv2Y_UMZ--pv/view)
 
 ### Arxiv version:
-**link**
+(https://arxiv.org/abs/2110.04955)
 
 ## Project Page:
 [BuildingNet](https://buildingnet.org/)
