@@ -43,5 +43,13 @@
 
 <p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a></small></p>
 
+<h1 align="left">Presentation at ICCV</h1>
+
+<a href="https://drive.google.com/file/d/10jUM0stW9op50bvO6tZu8WE5jAQpyuWW/view?usp=sharing">Slides in PDF format</a>, 7.4MB
+
+<h3 align="left">Poster</h3>
+
+<a href="https://drive.google.com/file/d/1QFDnwEiQYfelA5c_QKpKZofnyNlma83I/view?usp=sharing">BuildingNet_poster.pdf</a>, 2.9MB
+
 <h1 align="left">Dataset and Code</h1>
 <p align="justify">The official implementation can be found in our <a href="https://github.com/buildingnet/buildingnet_dataset">github repository</a>. Please fill in <a href="https://forms.gle/jFQpoRzRkrTCaTzX8">this form</a>, in order to get access to the official release of the BuildingNet dataset.</p>
