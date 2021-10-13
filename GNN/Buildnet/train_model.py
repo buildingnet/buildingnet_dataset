@@ -33,7 +33,6 @@ class train_model():
         self.model = model
         self.outputdir = args.outputdir
         self.batch_size = args.batch_size
-        self.num_building_load = args.num_building_load
         self.modeltype = args.modeltype
         self.edgetype = args.edgetype
         self.normalization = args.normalization
@@ -108,9 +107,9 @@ class train_model():
         self.buildnet_dec.to(device)
 
         ''' load valid buildings '''
-        self.validation_data = DataLoader(BuildnetDataSet(root= args.datadir, typeofdata='val', typeofedge=self.edgetype, nodefeature=self.nodetype, pretrainedtype=self.pretrainedtype), batch_size=args.num_building_load, shuffle=False, num_workers=0)
-        self.training_data = DataLoader(BuildnetDataSet(root = args.datadir, typeofdata='train', typeofedge=self.edgetype, nodefeature=self.nodetype, pretrainedtype=self.pretrainedtype), batch_size=args.num_building_load, shuffle=True, num_workers=0)
-        self.test_data = DataLoader(BuildnetDataSet(root = args.datadir, typeofdata='test', typeofedge=self.edgetype, nodefeature=self.nodetype, pretrainedtype=self.pretrainedtype), batch_size=args.num_building_load, shuffle=False, num_workers=0)
+        self.validation_data = DataLoader(BuildnetDataSet(root= args.datadir, typeofdata='val', typeofedge=self.edgetype, nodefeature=self.nodetype, pretrainedtype=self.pretrainedtype), batch_size=self.batch_size, shuffle=False, num_workers=0)
+        self.training_data = DataLoader(BuildnetDataSet(root = args.datadir, typeofdata='train', typeofedge=self.edgetype, nodefeature=self.nodetype, pretrainedtype=self.pretrainedtype), batch_size=self.batch_size, shuffle=True, num_workers=0)
+        self.test_data = DataLoader(BuildnetDataSet(root = args.datadir, typeofdata='test', typeofedge=self.edgetype, nodefeature=self.nodetype, pretrainedtype=self.pretrainedtype), batch_size=self.batch_size, shuffle=False, num_workers=0)
 
         self.iters = len(self.training_data)
 
@@ -197,6 +196,7 @@ class train_model():
             data = building.to(device)
             numnodes = data.numnodes
             indexreduced_y = data.y - 1
+            #print(numnodes.shape, flush=True)
             
             self.opt['buildnet_enc'].zero_grad() 
             self.opt['buildnet_dec'].zero_grad()
@@ -209,18 +209,26 @@ class train_model():
             elif self.modeltype == "Edge":
                 numedges = data.numedges
                 nodepair = data.nodepair
-                if istraining:
-                    if len(nodepair) > 100000:
-                        continue
+                #print(sum(numnodes), flush=True)
+                #print(nodepair.shape, flush=True)
+                #print(numedges, flush=True)
+                #print(sum(numedges), flush=True)
 
                 if (index % 50) == 0:
                     print("Building = {} ".format(index),flush=True)
+
+                #print(nodepair.shape)
                    
-                if self.num_building_load > 1:
-                    nodepair = reassignNodePairIndex(numnodes,numedges,data.nodepair)
+                if self.batch_size > 1:
+                    nodepair = reassignNodePairIndex(numnodes,numedges,nodepair)
+                    #print(len(nodepair))
+
+               # if istraining:
+               #     if len(nodepair) > 100000:
+               #         continue
 
                 with torch.set_grad_enabled(istraining):
-                    node_neighbour_index, nodepair, attribute = getNodeNeighbourRelation(data.nodepair, data.attribute)
+                    node_neighbour_index, nodepair, attribute = getNodeNeighbourRelation(nodepair, data.attribute)
                     #random.shuffle(nodepair)
                     enc_result_edge = self.buildnet_enc(data.x, nodepair, attribute, node_neighbour_index)
                     dec_result = self.buildnet_dec(enc_result_edge)
@@ -235,7 +243,7 @@ class train_model():
                 self.opt['buildnet_dec'].step()
 
             epoch_loss += batch_loss.item()
-            epoch_data_count += 1
+            epoch_data_count += self.batch_size
 
             batch_acc, acc_data_count = accuracy(preds, indexreduced_y)
             #print(batch_acc)
