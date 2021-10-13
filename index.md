@@ -47,6 +47,18 @@
 
 <a href="https://drive.google.com/file/d/10jUM0stW9op50bvO6tZu8WE5jAQpyuWW/view?usp=sharing">Slides in PDF format</a>, 7.4MB
 
+YouTube video of the presentation
+
+<div class="embed-container">
+  <iframe
+      src="https://www.youtube.com/embed/rl30WJo_EBo"
+      width="700"
+      height="480"
+      frameborder="0"
+      allowfullscreen="">
+  </iframe>
+</div>
+
 <h3 align="left">Poster</h3>
 
 <a href="https://drive.google.com/file/d/1QFDnwEiQYfelA5c_QKpKZofnyNlma83I/view?usp=sharing">BuildingNet_poster.pdf</a>, 2.9MB
