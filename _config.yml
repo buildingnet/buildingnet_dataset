@@ -2,6 +2,7 @@ theme: jekyll-theme-cayman
 title: "BuildingNet: Learning to Label 3D Buildings"
 description: "ICCV 2021 (oral)"
 show_downloads: false
+google_analytics: G-1450YQXTWC
 github:
   is_project_page: true
   zip_url: https://github.com/buildingnet/buildingnet_dataset/zipball/main
