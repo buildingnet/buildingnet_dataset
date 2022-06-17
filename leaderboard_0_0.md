@@ -1,4 +1,4 @@
-<h1 align="left">BuildingNet v0.0 Benchmark Leaderboard</h1>
+<h1 align="left">BuildingNet Benchmark Leaderboard</h1>
 
 This is the official leaderboard of the BuildingNet v0.0 benchmark. Please email <a href="mailto:buildingnetwebmaster@gmail.com">buildingnetwebmaster@gmail.com</a>
 to add or update your results.
