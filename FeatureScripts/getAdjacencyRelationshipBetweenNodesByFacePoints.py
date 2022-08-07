@@ -147,111 +147,6 @@ class AdjacencyRelationshipByFacePoints:
                 finaldist = np.hstack((finaldist,dist))
         return finaldist
 
-    def getAdjacencyByBallQuery(self):
-        count = 0
-        #import time
-        for key, value in self.adjacent.items():
-            keypoint = self.getAllFacePointsForComponent(key)
-            keyedgepoint = self.getAllFaceEdgePointsForComponent(key)
-            keypoint = np.concatenate((keypoint, keyedgepoint))
-            print(len(keypoint))
-            if len(keypoint) > 30000:
-               half = len(keypoint)/2
-               while half > 30000:
-                   half = half/2
-               randomindex = np.random.randint(0,len(keypoint), int(half))
-               newkeys = keypoint[randomindex]
-               keypoint = newkeys
-            for v in value:
-                if key in self.newadj and v in self.newadj[key]:
-                    continue
-                totalnum = 0
-                valuepoints = self.getAllFacePointsForComponent(v)
-                valueedgepoints = self.getAllFaceEdgePointsForComponent(v)
-                valuepoints = np.concatenate((valuepoints, valueedgepoints))
-                if len(valuepoints) > 30000:
-                   half = len(valuepoints)/2
-                   while half > 30000:
-                       half = half/2
-                   randomindex = np.random.randint(0,len(valuepoints), int(half))
-                   newvalues = valuepoints[randomindex]
-                   valuepoints = newvalues
-                
-                n = math.ceil(len(valuepoints)/100)
-                allvalidindex_01 = 0
-                allvalidindex_025 = 0
-                allvalidindex_05 = 0
-                allvalidindex_1 = 0
-                for i in range(n):
-                    s1 = i*100
-                    e1 = (i+1)*100
-                    p1 = valuepoints[s1:e1]
-                    if e1 > len(valuepoints):
-                        p1 = valuepoints[s1:]
-             
-                    distances = self.getAllDistanceByBroadcast(keypoint, p1)
-                    distances = np.array(distances)
-
-                    # number of value points closer to keypoints
-                    # doesnt matter if the same keypoint is mapped to several valuepoints
-                    #valid_index_0 = np.where(np.any([x <= 0.0 for x in distances],axis=1)==True)
-                    diagonal = threshold*((self.bbox[key].diagonal+ self.bbox[v].diagonal)/2)
-                    d_threshold = [0.1*diagonal, 0.25*diagonal, 0.5*diagonal, 1*diagonal]
-                    valid_index_01 = np.where(np.any([x <= d_threshold[0] for x in distances],axis=1)==True)
-                    valid_index_025 = np.where(np.any([x <= d_threshold[1] for x in distances],axis=1)==True)
-                    valid_index_05 = np.where(np.any([x <= d_threshold[2] for x in distances],axis=1)==True)
-                    valid_index_1 = np.where(np.any([x <= d_threshold[3] for x in distances],axis=1)==True)
-                    #valid_index_0 = valid_index_0[0]
-                    valid_index_01 = valid_index_01[0]
-                    valid_index_025 = valid_index_025[0]
-                    valid_index_05 = valid_index_05[0]
-                    valid_index_1 = valid_index_1[0]
-#                    p = distances[:,valid_index]
-#                    for kk in p:
-#                        for dd in kk:
-#                            if dd <= 0:
-#                                print(dd)
-
-                    #if len(valid_index):
-                        #print(distances)
-                    #    if not len(self.testvalidpoints):
-                    #        self.testvalidpoints = np.array(keypoint[valid_index])
-                    #    else:
-                    #        self.testvalidpoints = np.concatenate((self.testvalidpoints,keypoint[valid_index]))
-                    #if len(valid_index_0):
-                    #    allvalidindex_0.append(valid_index_0)
-                    if len(valid_index_01):
-                        allvalidindex_01 += len(valid_index_01)
-                    if len(valid_index_025):
-                        allvalidindex_025 += len(valid_index_025)
-                    if len(valid_index_05):
-                        allvalidindex_05 += len(valid_index_05)
-                    if len(valid_index_1):
-                        allvalidindex_1 += len(valid_index_1)
-                    #if(len(valuepoints) == 17674):
-                    #    print("four")
-
-
-                #percentcoverage = 100.0*len(allvalidindex)/len(keypoint)
-                #print(str(key)+"::"+str(v)+"::"+str(percentcoverage))
-
-                if sum([allvalidindex_01, allvalidindex_025, allvalidindex_05, allvalidindex_1]) > 0:
-                    if not key in self.newadj:
-                        self.newadj[key] = {}
-                    self.newadj[key][v] = {}
-                    #percentcoverage_0 = 100.0*len(allvalidindex_0)/len(valuepoints)
-                    percentcoverage_01 = (allvalidindex_01)/float(len(valuepoints))
-                    percentcoverage_025 = (allvalidindex_025)/float(len(valuepoints))
-                    percentcoverage_05 = (allvalidindex_05)/float(len(valuepoints))
-                    percentcoverage_1 = (allvalidindex_1)/float(len(valuepoints))
-                    #if(len(valuepoints) == 17674):
-                    #        print("five")
-                    #self.newadj[key][v][0] = percentcoverage_0
-
-                    self.newadj[key][v][0.1] =  percentcoverage_01
-                    self.newadj[key][v][0.25] =  percentcoverage_025
-                    self.newadj[key][v][0.5] =  percentcoverage_05
-                    self.newadj[key][v][1.0] =  percentcoverage_1
 
     def getAdjacencyByEuclideanDistance(self):
         count = 0 
@@ -316,9 +211,9 @@ class AdjacencyRelationshipByFacePoints:
         
         for f in range(faceindex[0], faceindex[1]+1):
             face = self.faces[f]
-            v0 = face[0] # self.vertices[face[0]]
-            v1 = face[1] #self.vertices[face[1]]
-            v2 = face[2] #self.vertices[face[2]]
+            v0 = face[0] 
+            v1 = face[1] 
+            v2 = face[2] 
             if not v0 in edgepoints:
                 edgepoints.append(v0)
             if not v1 in edgepoints:
@@ -520,7 +415,6 @@ class AdjacencyRelationshipByFacePoints:
        
     def testpoints(self, inputpoints, isdict=False):
         allpoints = []
-        #for k, points in self.facepoints.items():
         if isdict:
             for k, points in inputpoints.items():
                 for p in points:
