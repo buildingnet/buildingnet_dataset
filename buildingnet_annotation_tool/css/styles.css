@@ -1,0 +1,217 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu {
+  width: 220px;
+  font-family: Raleway, sans-serif;
+  color: #ffffff;
+}
+#cssmenu ul ul {
+  display: none;
+}
+#cssmenu > ul > li.active > ul {
+  display: block;
+}
+.align-right {
+  float: right;
+}
+#cssmenu > ul > li > a {
+  padding: 16px 22px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background: #3ab4a6;
+  -webkit-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+#cssmenu > ul > li > a:hover {
+  color: #d8f3f0;
+}
+
+.label_done {
+  color: green !important;
+}
+
+#cssmenu ul > li.has-sub.open > a {
+  color: #ff0000;
+}
+
+#cssmenu ul > li.has-sub > a:after {
+  position: absolute;
+  right: 26px;
+  top: 19px;
+  z-index: 5;
+  display: block;
+  height: 10px;
+  width: 2px;
+  background: #ffffff;
+  content: "";
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+#cssmenu ul > li.has-sub > a:before {
+  position: absolute;
+  right: 22px;
+  top: 23px;
+  display: block;
+  width: 10px;
+  height: 2px;
+  background: #ffffff;
+  content: "";
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+#cssmenu ul > li.has-sub.open > a:after,
+#cssmenu ul > li.has-sub.open > a:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#cssmenu ul ul li a {
+  padding: 14px 22px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 14px;
+  text-decoration: none;
+  color: #b4b4b4;
+  background: #49505a;
+  -webkit-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+#cssmenu ul ul ul li a {
+  padding-left: 32px;
+}
+#cssmenu ul ul li a:hover {
+  color: #ffffff;
+}
+#cssmenu ul ul > li.has-sub > a:after {
+  top: 16px;
+  right: 26px;
+  background: #B4B4B4;
+}
+#cssmenu ul ul > li.has-sub > a:before {
+  top: 20px;
+  background: #B4B4B4;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  top: 0;
+  bottom: 47px;
+  left: 221px;
+  right: 150px;
+  outline: 1px solid;
+  position: fixed;
+}
+
+#labeling {
+  position: fixed;
+  left: 220px;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #3ab4a6;
+  padding: 10px;
+}
+
+div.center {
+  text-align: center;
+}
+
+#label_text {
+  width: 250px;
+  margin-left: 10px;
+}
+
+div.center label {
+  color: #ffffff;
+  font-family: Raleway, sans-serif;
+}
+
+div.overlay div img {
+  width: 90%;
+}
+
+div.floating {
+  color : #ffffff;
+  background : #000000;
+  opacity : 0.8;
+  width : 80%;
+  height : 80%;
+  position : absolute;
+  left : 10%;
+  top : 10%;
+  border : 1px solid #555555;
+  padding : 10px;
+  display : none;
+  overflow : auto;
+  z-index: 100;
+}
+
+#loading {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(192, 192, 192, 0.5) url("http://i.stack.imgur.com/MnyxU.gif") no-repeat center;
+}
+
+#labels_list {
+  position: fixed;
+  background-color: #3ab4a6;
+  top: 0;
+  bottom: 55px;
+  right: 0;
+  width: 150px;
+  border-bottom: solid;
+  border-color: #333333;
+  overflow-y: scroll;
+}
+
+#labels_list > ul {
+  padding-left: 10px;
+  list-style-type: none;
+  font-family: Raleway, sans-serif;
+}
+
+#labels_list > ul > li {
+  margin: 10px;
+}
+
+#labels_list > ul > li > a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+}
