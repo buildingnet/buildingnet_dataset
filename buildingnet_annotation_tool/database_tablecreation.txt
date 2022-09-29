@@ -1,0 +1,203 @@
+-- MySQL dump 10.14  Distrib 5.5.64-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: <dbname>
+-- ------------------------------------------------------
+-- Server version	5.5.64-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: dbname``
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `dbname` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `dbname`;
+
+--
+-- Table structure for table `buildnetlabelinfo`
+--
+
+DROP TABLE IF EXISTS `buildnetlabelinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `buildnetlabelinfo` (
+  `label` varchar(100) NOT NULL DEFAULT '',
+  `filename` varchar(100) NOT NULL DEFAULT '',
+  `objindex` int(11) NOT NULL DEFAULT '0',
+  `objname` varchar(100) DEFAULT '',
+  `workerid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`label`,`filename`,`objindex`,`workerid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user_info`
+--
+
+DROP TABLE IF EXISTS `user_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_info` (
+  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `worker_id` varchar(50) DEFAULT NULL,
+  `hit_id` varchar(50) DEFAULT NULL,
+  `assignment_id` varchar(50) DEFAULT NULL,
+  `ip_addres` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `age` varchar(50) DEFAULT NULL,
+  `gender` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `userinfo`
+--
+
+DROP TABLE IF EXISTS `userinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userinfo` (
+  `workerid` varchar(50) DEFAULT NULL,
+  `hitid` varchar(50) DEFAULT NULL,
+  `assignmentid` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timespent` float DEFAULT '0',
+  `numskip` int(11) DEFAULT '0',
+  `percent` int(11) DEFAULT '0',
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32200 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `obj_img_id_map`
+--
+
+DROP TABLE IF EXISTS `obj_img_id_map`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `obj_img_id_map` (
+  `obj_id` int(6) unsigned NOT NULL,
+  `img_id` int(6) unsigned DEFAULT NULL,
+  PRIMARY KEY (`obj_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `obj_cat_id_map`
+--
+
+DROP TABLE IF EXISTS `obj_cat_id_map`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `obj_cat_id_map` (
+  `obj_id` int(6) unsigned NOT NULL,
+  `cat_id` int(6) unsigned DEFAULT NULL,
+  PRIMARY KEY (`obj_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `obj_bbox_map`
+--
+
+DROP TABLE IF EXISTS `obj_bbox_map`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `obj_bbox_map` (
+  `obj_id` int(6) unsigned NOT NULL,
+  `bbox` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`obj_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `obj_attr_map`
+--
+
+DROP TABLE IF EXISTS `obj_attr_map`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `obj_attr_map` (
+  `obj_id` int(6) unsigned DEFAULT NULL,
+  `attr` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `labelinfo`
+--
+
+
+DROP TABLE IF EXISTS `labelinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `labelinfo` (
+  `label` varchar(100) NOT NULL DEFAULT '',
+  `filename` varchar(100) NOT NULL DEFAULT '',
+  `objindex` int(11) NOT NULL DEFAULT '0',
+  `workerid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`label`,`filename`,`objindex`,`workerid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `labelMetaData`
+--
+
+DROP TABLE IF EXISTS `labelMetaData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `labelMetaData` (
+  `label` varchar(80) DEFAULT NULL,
+  `labelcount` int(10) DEFAULT '0',
+  `filename` varchar(900) DEFAULT NULL,
+  `filecount` int(11) DEFAULT NULL,
+  `objindex_filename` varchar(990) DEFAULT NULL,
+  UNIQUE KEY `ukey` (`label`,`labelcount`,`filename`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `fileMetaData`
+--
+
+DROP TABLE IF EXISTS `fileMetaData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fileMetaData` (
+  `filename` varchar(80) DEFAULT NULL,
+  `totallabel` int(100) DEFAULT NULL,
+  `label` varchar(80) DEFAULT NULL,
+  `countlabel` varchar(80) DEFAULT NULL,
+  UNIQUE KEY `ukey` (`filename`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `comparision_data`
+--
+
+DROP TABLE IF EXISTS `comparision_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comparision_data` (
+  `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+  `obj_id1` int(6) unsigned DEFAULT NULL,
+  `obj_id2` int(6) unsigned DEFAULT NULL,
+  `attrib` varchar(50) DEFAULT NULL,
+  `is_greater` int(6) unsigned DEFAULT NULL,
+  `user_id` int(6) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
