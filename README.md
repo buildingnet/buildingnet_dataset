@@ -11,7 +11,7 @@ data for both vision and graphics tasks e.g., 3D semantic segmentation, part-bas
 and analysis of point cloud data acquired from real-world buildings.
 
 ## News
-* [05/2023] We added an update implementation of the MinkowskiNet experiments, based on the latest version (v0.5.4) of the 
+* [05/2023] We updated the implementation of the MinkowskiNet experiments, based on the latest version (v0.5.4) of the 
 [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine/tree/v0.5.4).
 * [02/2023] The BuildingNet v1 dataset is now available, with more complete and improved labelings, which can be downloaded 
 by filling [this form](https://forms.gle/jFQpoRzRkrTCaTzX8).
