@@ -5,8 +5,8 @@ function gdrive_download () {
   rm -rf /tmp/cookies.txt
 }
 
-declare -a MODELS_NAME=("MinkNet_BuildingNet_normals.zip" "MinkNet_BuildingNet_normals_rgba.zip")
-declare -a MODELS_ID=("12oiGN41bouFXTY_4QVGfN3ZNqGDhQrjf" "1woM7QWAXipikGSiBNGVfaOJdxschXyPL")
+declare -a MODELS_NAME=("MinkNet_BuildingNet_v1_normals_rgb.zip")
+declare -a MODELS_ID=("1DhUAKPlrEVickIOQ37gLYoYR0VeZsSps")
 
 for i in "${!MODELS_NAME[@]}"
 do

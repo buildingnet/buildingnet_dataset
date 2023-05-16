@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-export BATCH_SIZE=32
-export CUDA_VISIBLE_DEVICES='0,1'
-FEAT=$1
+BATCH_SIZE=32
+MAX_EPOCH=200
+DATA_PATH=./Dataset/BuildingNet/minkowski_net
+GPU=0
+LOSS=weighted_cross_entropy
+INPUT_FEAT=$1
 
-./scripts/train.sh weighted_cross_entropy $FEAT "--buildingnet_path Dataset/BuildingNet/minkowski_net \
- --prefetch_data true --weighted_cross_entropy true --val_freq 600 --save_freq 200 --max_ngpu 2 \
- --save_param_histogram true"
+./scripts/train.sh $GPU $LOSS $INPUT_FEAT $BATCH_SIZE $MAX_EPOCH "--buildingnet_path $DATA_PATH \
+--prefetch_data True --shift True --rot_aug True --avg_feat True --opt_speed True \
+--weighted_cross_entropy True --save_param_histogram True --num_workers 8"

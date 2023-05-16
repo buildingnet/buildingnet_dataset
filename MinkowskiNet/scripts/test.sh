@@ -6,40 +6,42 @@ set -e
 
 set -o pipefail
 
-export OMP_NUM_THREADS=2
 export PYTHONUNBUFFERED="True"
+export OMP_NUM_THREADS=4
 export CUDA_VISIBLE_DEVICES=$1
-export EXPERIMENT=$2
-export INPUT_FEAT=$3
-export TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+EXPERIMENT=$2
+INPUT_FEAT=$3
+BATCH_SIZE=$4
+MAX_EPOCH=$5
+TIME=$(date +"%Y-%m-%d_%H-%M-%S")
 
-export DATASET=${DATASET:-BuildingNetVoxelization0_01Dataset}
-export MODEL=${MODEL:-Res16UNet34A}
-export OPTIMIZER=${OPTIMIZER:-SGD}
-export LR=${LR:-1e-1}
-export BATCH_SIZE=${BATCH_SIZE:-32}
-export SCHEDULER=${SCHEDULER:-ReduceLROnPlateau}
-export MAX_ITER=${MAX_ITER:-60000}
+DATASET=${DATASET:-BuildingNetVoxelization0_01Dataset}
+MODEL=${MODEL:-Res16UNet34C}
+OPTIMIZER=${OPTIMIZER:-SGD}
+LR=${LR:-1e-2}
+SCHEDULER=${SCHEDULER:-CosineAnnealingLR}
 
-export OUTPATH=./outputs/$DATASET/$MODEL/${OPTIMIZER}-l$LR-b$BATCH_SIZE-$SCHEDULER-i$MAX_ITER-$EXPERIMENT-$INPUT_FEAT/${TIME}_evaluation
-export VERSION=$(git rev-parse HEAD)
+OUTPATH=./outputs/$DATASET/$MODEL/${OPTIMIZER}-l$LR-b$BATCH_SIZE-$SCHEDULER-e$MAX_EPOCH-$EXPERIMENT-$INPUT_FEAT/$TIME
+VERSION=$(git rev-parse HEAD)
 
 # Save the experiment detail and dir to the common log file
 mkdir -p $OUTPATH
 
 LOG="$OUTPATH/$TIME.txt"
-SAVE_PRED_DIR="$OUTPATH/results"
 
 # put the arguments on the first line for easy resume
 echo -e "
     --log_dir $OUTPATH \
     --dataset $DATASET \
     --model $MODEL \
+    --train_limit_numpoints 1200000 \
     --lr $LR \
     --optimizer $OPTIMIZER \
+    --batch_size $BATCH_SIZE \
     --scheduler $SCHEDULER \
+    --max_epoch $MAX_EPOCH \
     --input_feat $INPUT_FEAT \
-    $4" >> $LOG
+    $6" >> $LOG
 echo Logging output to "$LOG"
 echo $(pwd) >> $LOG
 echo "Version: " $VERSION >> $LOG
@@ -47,14 +49,20 @@ echo "Git diff" >> $LOG
 echo "" >> $LOG
 git diff | tee -a $LOG
 echo "" >> $LOG
+echo -e "-------------------------------System Information----------------------------" >> $LOG
+echo -e "Hostname:\t\t"`hostname` >> $LOG
+echo -e "GPU(s):\t\t$CUDA_VISIBLE_DEVICES" >> $LOG
 nvidia-smi | tee -a $LOG
 
-time python -W ignore main.py \
+time python -W ignore tasks/main_seg.py \
     --log_dir $OUTPATH \
     --dataset $DATASET \
     --model $MODEL \
-    --save_pred_dir $SAVE_PRED_DIR \
+    --train_limit_numpoints 12000000 \
+    --lr $LR \
+    --optimizer $OPTIMIZER \
+    --batch_size $BATCH_SIZE \
+    --scheduler $SCHEDULER \
+    --max_epoch $MAX_EPOCH \
     --input_feat $INPUT_FEAT \
-    $4 2>&1 | tee -a "$LOG"
-
-python -m lib.buildingnet_eval $OUTPATH/results
+    $6 2>&1 | tee -a "$LOG"

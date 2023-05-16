@@ -9,4 +9,4 @@ WEIGHTS=$2
 
 ./scripts/test.sh $GPU $LOSS $INPUT_FEAT $BATCH_SIZE $MAX_EPOCH "--buildingnet_path $DATA_PATH \
 --prefetch_data True  --avg_feat True --opt_speed True --weighted_cross_entropy True --is_train False \
---export_features True --weights $WEIGHTS"
+--export_predictions True --weights $WEIGHTS"

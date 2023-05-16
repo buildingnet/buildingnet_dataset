@@ -1,50 +1,54 @@
-from pathlib import Path
+import os
 import numpy as np
 from lib.pc_utils import read_plyfile, save_point_cloud_with_normals
 import json
 
-BUILDINGNET_BASE_PATH = Path('Dataset/BuildingNet')
-BUILDINGNET_OUT_PATH = BUILDINGNET_BASE_PATH / 'minkowski_net'
+BUILDINGNET_BASE_DIR = os.path.join("Dataset", "BuildingNet")
+BUILDINGNET_OUT_DIR = os.path.join(BUILDINGNET_BASE_DIR, "minkowski_net")
+os.makedirs(BUILDINGNET_OUT_DIR, exist_ok=True)
 SPLITS = ["train", "test", "val"]
-POINTCLOUD_FILE = '.ply'
+POINTCLOUD_FILE = ".ply"
 MAXIMUM_LABEL_ID = 31
+SPLIT_DIR = os.path.join(BUILDINGNET_BASE_DIR, "splits")
 
-split_path = BUILDINGNET_BASE_PATH / 'splits'
 for split in SPLITS:
-	# Read shapes in split
-	split_file = split_path / (split + '_split.txt')
-	shape_list = []
-	with open(split_file, 'r') as fin:
-		for line in fin:
-			shape_list.append(line.strip())
+    # Read shapes in split
+    split_file = os.path.join(SPLIT_DIR, f"{split}_split.txt")
+    shape_list = []
+    with open(split_file, 'r') as fin:
+        for line in fin:
+            shape_list.append(line.strip())
 
-	split_out_path = BUILDINGNET_OUT_PATH / split
-	split_out_path.mkdir(parents=True, exist_ok=True)
+    split_out_path = os.path.join(BUILDINGNET_OUT_DIR, split)
+    os.makedirs(split_out_path, exist_ok=True)
 
-	# Rewrite split list
-	with open(BUILDINGNET_OUT_PATH / (split + '.txt'), 'w') as fout_split:
-		for shape in shape_list:
-			fout_split.write(split + '/' + shape + '.ply\n')
+    # Rewrite split list
+    split_fn = os.path.join(BUILDINGNET_OUT_DIR, f"{split}.txt")
+    with open(split_fn, 'w') as f_out:
+        for shape in shape_list:
+            f_out.write(f'{split}/{shape}.ply\n')
 
-	# Read shape from split
-	for ind, shape in enumerate(shape_list):
-		print("Preprocess {shape:s} from split {split:s} ({ind:d}/{total:d})"
-			  .format(shape=shape, split=split, ind=ind+1, total=len(shape_list)))
-		pointcloud_path = BUILDINGNET_BASE_PATH / 'POINT_CLOUDS' / (shape + '.ply')
+    # Read shape from split
+    for ind, shape in enumerate(shape_list):
+        print(f"Preprocess {shape} from split {split} ({ind+1}/{len(shape_list)})")
 
-		# Read point cloud
-		pointcloud = read_plyfile(pointcloud_path)
+        # Read point cloud
+        pointcloud_fn = os.path.join(BUILDINGNET_BASE_DIR, "POINT_CLOUDS", f"{shape}.ply")
+        pointcloud = read_plyfile(pointcloud_fn)
 
-		# Read labels
-		labels_path = BUILDINGNET_BASE_PATH / 'point_labels' / (shape + '_label.json')
-		with open(labels_path, 'r') as fin_json:
-			labels_json = json.load(fin_json)
-		labels = np.fromiter(labels_json.values(), dtype=float)
-		assert labels.shape[0] == pointcloud.shape[0]
-		assert np.amin(labels) >= 0
-		assert np.amax(labels) <= MAXIMUM_LABEL_ID
+        if split != "test":
+            # Read labels
+            labels_fn = os.path.join(BUILDINGNET_BASE_DIR, "point_labels", f"{shape}_label.json")
+            with open(labels_fn, 'r') as fin_json:
+                labels_json = json.load(fin_json)
+            labels = np.fromiter(labels_json.values(), dtype=float)
+            assert labels.shape[0] == pointcloud.shape[0]
+            assert np.amin(labels) >= 0
+            assert np.amax(labels) <= MAXIMUM_LABEL_ID
+            processed = np.hstack((pointcloud, labels[:, np.newaxis]))
+        else:
+            processed = pointcloud
 
-		# Export pointcloud for minkowski
-		out_filepath = split_out_path / (shape + '.ply')
-		processed = np.hstack((pointcloud, labels[:, np.newaxis]))
-		save_point_cloud_with_normals(processed, out_filepath, with_label=True, verbose=False)
+        # Export pointcloud for minkowskinet
+        out_fn = os.path.join(split_out_path, f"{shape}.ply")
+        save_point_cloud_with_normals(processed, out_fn, with_label=True if split != "test" else False, verbose=False)
