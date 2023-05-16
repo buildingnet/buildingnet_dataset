@@ -23,7 +23,7 @@ conda env create -f environment.yml
 The Minkowski Engine **v0.5.4** needs to also be installed, either [manually](https://github.com/NVIDIA/MinkowskiEngine)
 or through [pip](https://pypi.org/project/MinkowskiEngine/).
 
-## BuildingNet v1 training
+## BuildingNet v1 Dataset
 
 ### Preprocessing
 
@@ -59,7 +59,7 @@ python -m lib.datasets.preprocessing.buildingnet
 This will create the ```minkowski_net``` folder under ```Dataset/BuildingNet```, which contains the
 input point cloud data to the Minkowski network.
 
-## Training
+### Training
 You can train your network using:
 ```bash
 ./training.sh  <input_feat>
@@ -70,7 +70,7 @@ You can train your network using:
 Adjust the batch size, according to your computational resources. For our experiments we set ```batch_size=32```, and
 the NVIDIA A5000 GPU was used (```VRAM=24GB```). 
 
-## Evaluation - Validation Split
+### Evaluation - Validation Split
 For evaluating a trained model on the **validation** split, first the following files need to be added to the dataset directory:
 
 - ```OBJ_MODELS.zip```
@@ -100,7 +100,7 @@ Finally, run the following command in order to evaluate the model for the point 
 # <weights>: specify the trained weights path
 ```
 
-## Online Challenge (EvalAI)
+### Online Challenge (EvalAI)
 You can export the per-point and per-face predicted labels in `.npz` format, for the validation and test split by 
 executing the `export_predictions.sh` script:
 
@@ -118,7 +118,7 @@ You can upload each generated `.npz` file to the appropriate evaluation phase to
 The submitted file will be evaluated either on the validation or the test ground truth annotations. Check the *"My Submissions"* 
 page to view your evaluation score.
 
-## Export features for BuildingGNN
+## #Export features for BuildingGNN
 
 Features can be exported per-component for each building model, with the following command:
 
@@ -132,7 +132,7 @@ Features can be exported per-component for each building model, with the followi
 # <weights>: specify the trained weights path
 ```
 
-## Pretrained model
+### Pretrained model
 
 |    Model     | Voxel Size |      Input Features       | Point Cloud Eval. (Val split) |  Triangle Eval. (Val split)   |   Component Eval. (Val split)   | Link   |
 |:------------:|:----------:|:-------------------------:|:-----------------------------:|:-----------------------------:|:-------------------------------:|:------:|
