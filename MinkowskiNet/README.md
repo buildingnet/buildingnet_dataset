@@ -118,7 +118,7 @@ You can upload each generated `.npz` file to the appropriate evaluation phase to
 The submitted file will be evaluated either on the validation or the test ground truth annotations. Check the *"My Submissions"* 
 page to view your evaluation score.
 
-## #Export features for BuildingGNN
+### Export features for BuildingGNN
 
 Features can be exported per-component for each building model, with the following command:
 
