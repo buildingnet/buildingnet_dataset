@@ -1,7 +1,6 @@
 import models.model as basenet
 import models.resunet as resunet
 import models.res16unet as res16unet
-import models.hrnet as hrnet
 
 
 MODELS = []
@@ -14,7 +13,6 @@ def add_models(module):
 add_models(basenet)
 add_models(resunet)
 add_models(res16unet)
-add_models(hrnet)
 
 
 def get_models():
