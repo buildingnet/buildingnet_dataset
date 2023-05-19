@@ -45,5 +45,5 @@ python3 train.py --datadir="data" --epoch 200 --outputdir 'Output' --ckpt_dir 'c
 This gives Shape and part IOU every 5 epochs.
 
 ## MinkowskiNet Experiments
-Follow this [guide](MinkowskiNet/README.md), for the MinkowskiNet experiments on the BuildingNet v0 dataset.
+Follow this [guide](MinkowskiNet/README.md), for the MinkowskiNet experiments on the BuildingNet v1 dataset.
 
