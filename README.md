@@ -11,6 +11,9 @@ data for both vision and graphics tasks e.g., 3D semantic segmentation, part-bas
 and analysis of point cloud data acquired from real-world buildings.
 
 ## News
+* [06/2023] We have released the test split ground truth annotations for the BuildingNet v1 dataset (they are available
+[here](https://forms.gle/jFQpoRzRkrTCaTzX8)). Our challenge website on [EvalAI](https://eval.ai/web/challenges/challenge-page/1938/overview)
+will remain active, where the BuildingNet v1 evaluation phases and leaderboards will be hosted. 
 * [05/2023] We updated the implementation of the MinkowskiNet experiments, based on the latest version (v0.5.4) of the 
 [MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine/tree/v0.5.4).
 * [02/2023] The BuildingNet v1 dataset is now available, with more complete and improved labelings, which can be downloaded 
