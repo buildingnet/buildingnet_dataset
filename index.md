@@ -41,13 +41,13 @@
 }   
 ```
 
-<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a></small></p>
+<p align="justify"><small>Additional supplementary material: a few video examples of UI operations used for labeling - <a href="https://drive.google.com/file/d/1zpX1a0osTZyvALw0BdaTTjbY3HzsSMJQ/view?usp=sharing">video_UI_tutorial_parts.zip</a>.</small></p>
 
 <h1 align="left">Presentation at ICCV</h1>
 
-<a href="https://drive.google.com/file/d/10jUM0stW9op50bvO6tZu8WE5jAQpyuWW/view?usp=sharing">Slides in PDF format</a>, 7.4MB
+<a href="https://drive.google.com/file/d/10jUM0stW9op50bvO6tZu8WE5jAQpyuWW/view?usp=sharing">Slides in PDF format</a>, 7.4MB.
 
-YouTube video of the presentation
+YouTube video of the presentation:
 
 <div class="embed-container">
   <iframe
@@ -61,7 +61,31 @@ YouTube video of the presentation
 
 <h3 align="left">Poster</h3>
 
-<a href="https://drive.google.com/file/d/1QFDnwEiQYfelA5c_QKpKZofnyNlma83I/view?usp=sharing">BuildingNet_poster.pdf</a>, 2.9MB
+<a href="https://drive.google.com/file/d/1QFDnwEiQYfelA5c_QKpKZofnyNlma83I/view?usp=sharing">BuildingNet_poster.pdf</a>, 2.9MB.
+
+<h1 align="left">BuildingNet Challenge</h1>
+The BuildingNet Challenge was held in conjunction with the Second Workshop on 
+<a href="https://struco3d.github.io/cvpr2023/">Structural and Compositional Learning on 3D Data</a> @ CVPR 2023 Vancouver 
+(Canada).The challenge focused on the task of part segmentation of 3D buildings. For the purposes of this challenge
+the newly released BuildingNet v1 dataset was used. For more information please visit the challenge website on 
+<a href="https://eval.ai/web/challenges/challenge-page/1938/overview">EvalAI</a>. 
+
+<h3 align="left">Challenge presentation</h3>
+
+<a href="https://drive.google.com/file/d/1uKjvk2rIQh0A1sli_eEPF1gQsrbiFpr_/view?usp=sharing">Slides in PDF format</a>, 6.4MB.
+<br><br>
+YouTube video of the challenge presentation at the 2nd <a href="https://struco3d.github.io/cvpr2023/">StruCo3D</a> (CVRPW):
+
+<div class="embed-container">
+  <iframe
+      src="https://www.youtube.com/embed/84UTtyRPqDA"
+      width="700"
+      height="480"
+      frameborder="0"
+      allowfullscreen="">
+  </iframe>
+</div>
+
 
 <h1 align="left">Dataset and Code</h1>
 <p align="justify">The official implementation can be found in our <a href="https://github.com/buildingnet/buildingnet_dataset">github repository</a>. Please fill in <a href="https://forms.gle/jFQpoRzRkrTCaTzX8">this form</a>, in order to get access to the official release of the BuildingNet dataset.</p>
